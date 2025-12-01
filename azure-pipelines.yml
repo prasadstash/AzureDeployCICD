@@ -28,7 +28,7 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
-    publishLocation: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    publishLocation: 
 
 - task: AzureRmWebAppDeployment@5
   inputs:
@@ -36,7 +36,7 @@ steps:
     azureSubscription: 'PrasadSub(4)(0348e385-0c6b-4a12-b09e-a16c7596f7a8)'
     appType: 'webAppLinux'
     WebAppName: 'learn'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     RuntimeStack: 'DOTNETCORE|8.0'
     DeploymentTypeLinux: 'oneDeploy'
 
